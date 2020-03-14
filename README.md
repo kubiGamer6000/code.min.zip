@@ -9,7 +9,7 @@ A HTML + JavaScript project, a template for working with the HTML5 canvas elemen
 
 ## Getting Started
 
-With these instructions you can get and install the 
+With these instructions you can get and install the project and start working with it.
 
 ### Requierments
 
@@ -26,7 +26,7 @@ cd code.min.zip
 
 ## Authors
 
-* **Velislav Vetsin** - *Coded the project* - [kubiGamer6000](https://github.com/kubiGamer6000/)
+* **Velislav Vetsin** - *Main Creator* - [kubiGamer6000](https://github.com/kubiGamer6000/)
 
-Inspired by original code.zip by Iashu
+Inspired by original [code.zip by Iashu](http://iashu.free.bg/code2018.zip)
 
