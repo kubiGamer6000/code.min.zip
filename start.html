@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+    <script>
+        let canvas = document.querySelector('#canvas');
+        let ctx = canvas.getContext('2d');
+        let endlessCanvas = false;
+        if (endlessCanvas) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            window.onresize(() => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+        let mX = 0,
+            mY = 0;
+
+        let key = {
+            q: 81,
+            a: 65,
+            z: 90,
+            one: 49,
+            w: 87,
+            s: 85,
+            x: 88,
+            two: 50,
+            e: 69,
+            d: 68,
+            c: 67,
+            three: 51,
+            r: 82,
+            f: 70,
+            v: 86,
+            four: 52,
+            t: 84,
+            g: 71,
+            b: 66,
+            five: 53,
+            y: 89,
+            h: 72,
+            n: 78,
+            six: 54,
+            u: 85,
+            j: 74,
+            m: 77,
+            seven: 55,
+            i: 73,
+            k: 75,
+            shift: 16,
+            eight: 56,
+            o: 79,
+            l: 76,
+            ctrl: 17,
+            nine: 57,
+            p: 80,
+            space: 32,
+            zero: 48,
+            plus: 107,
+            up: 38,
+            down: 40,
+            left: 37,
+            right: 39
+        };
+
+        let isKeyPressed = [];
+        for (let i = 0; i < 256; ++i) isKeyPressed = [ ...isKeyPressed, false ];
+        window.addEventListener('keydown', (e) => (isKeyPressed[e.keyCode] = true));
+        window.addEventListener('keyup', (e) => (isKeyPressed[e.keyCode] = false));
+
+        if(typeof mouseup != "undefined") window.addEventListener('mouseup', mouseup)
+
+        window.addEventListener('mousemove', (e) => {
+            mX = e.pageX - canvas.offsetLeft;
+            mY = e.pageY - canvas.offsetTop;
+        });
+
+        if (typeof update != "undefined") setInterval(update, 10);
+
+        function loopDraw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            draw();
+            requestAnimationFrame(loopDraw);
+        }
+
+        loopDraw();
+
+        function loadImg(src, width, height) {
+            let newImg = new Image(width, height);
+            newImg.src = src;
+            return newImg;
+        }
+    </script>
+    <script src="game.js"></script>
+</body>
+</html>

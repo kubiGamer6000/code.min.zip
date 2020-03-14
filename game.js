@@ -1,0 +1,3 @@
+function update() {}
+
+function draw() {}
